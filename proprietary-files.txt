@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from POCO F6 Pro / Redmi K70 (OS1.0.11.0).
+## are from POCO F6 Pro / Redmi K70 (OS2.0.2.0).
 
 # ACDBs
 odm/etc/acdbdata/Tutu/Tutu_acdb_cal.acdb
@@ -54,6 +54,7 @@ odm/mount/camera/lib/rfsa/adsp/libmialgo_rfs_cdsp_skel.so:vendor/lib/rfsa/adsp/l
 odm/mount/camera/lib/rfsa/adsp/libmialgo_slow_motion_cdsp_skel.so:vendor/lib/rfsa/adsp/libmialgo_slow_motion_cdsp_skel.so
 vendor/lib/rfsa/adsp/capi_cirrus_sp.so
 vendor/lib/rfsa/adsp/chre_qsh_shim.so
+vendor/lib/rfsa/adsp/hrtf5c.bin
 vendor/lib/rfsa/adsp/libDspIOProxy_skel.so
 vendor/lib/rfsa/adsp/libQ6MSFR_manager_skel.so
 vendor/lib/rfsa/adsp/libVppAisQnnHtp.so
@@ -128,7 +129,6 @@ vendor/lib64/libqcodec2_mocklutfilter.so
 vendor/lib64/libhdrvivid.so
 vendor/lib64/libmilut.so                                                                                                             
 vendor/lib64/libmi-stc-HW-modulate.so
-vendor/lib64/libpichdralgo.so
 vendor/lib64/libeyecare.so
 vendor/lib64/lib_misound_asc.so
 vendor/lib64/libadm.so
@@ -777,6 +777,8 @@ odm/lib64/com.qualcomm.qti.mcx.usecase.extension.so
 odm/lib64/com.xiaomi.camhal.overlap.so
 odm/lib64/com.xiaomi.camhal.submodel.camxfrag.so
 odm/lib64/com.xiaomi.camhal.submodel.chifrag.so
+odm/lib64/com.xiaomi.drivermqs.so
+odm/lib64/com.xiaomi.immunesystem.so
 odm/lib64/libAF.so
 odm/lib64/libAncHumanVideoBokehV4.so;DISABLE_CHECKELF
 odm/lib64/libHISCppAlgos.so
@@ -923,6 +925,7 @@ odm/lib64/libremosaic_wrapper.so
 odm/lib64/libremosaiclib.so
 odm/lib64/librfs_warp.so
 odm/lib64/libsfeShiftExtrapolation.so
+odm/lib64/libshadowhook.so
 odm/lib64/libsupermoon.so
 odm/lib64/libswregistrationalgo.so
 odm/lib64/libtfestriping.so
@@ -944,6 +947,7 @@ odm/lib64/libxmi_high_dynamic_range.so
 odm/lib64/libxmi_high_dynamic_range_cdsp.so
 odm/lib64/libxmi_slow_motion_mein.so
 odm/lib64/libxmi_slow_motion_triger.so
+odm/lib64/sqlite3.so;MODULE_SUFFIX=-odm
 odm/lib64/vendor.qti.hardware.camera.aon-service-impl.so
 odm/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 odm/lib64/vendor.xiaomi.hardware.bgservice@1.0-impl.so
@@ -1580,11 +1584,17 @@ vendor/etc/permissions/qti_fingerprint_interface.xml
 vendor/etc/vintf/manifest/fod.xml
 
 # GNSS
+odm/bin/hw/android.hardware.gnss-aidl-service-qti
 odm/etc/izat_device.conf
+odm/etc/init/android.hardware.gnss-aidl-service-qti.rc
+odm/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml
+odm/etc/vintf/manifest/vendor.qti.gnss-service.xml
+odm/lib64/vendor.qti.gnss-V3-ndk.so
+odm/lib64/vendor.qti.gnss-V4-ndk.so
+odm/lib64/vendor.qti.gnss-service.so
 vendor/bin/edgnss-daemon
 vendor/bin/engine-service
 vendor/bin/garden_app
-vendor/bin/hw/android.hardware.gnss-aidl-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server;DISABLE_CHECKELF
 vendor/bin/mlid
@@ -1594,7 +1604,6 @@ vendor/bin/xtwifi-client
 vendor/etc/apdr.conf
 vendor/etc/batching.conf
 vendor/etc/gps.conf
-vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc
 vendor/etc/init/init.vendor.ins.rc
 vendor/etc/init/loc-launcher.rc
 vendor/etc/init/vendor.qsap.location.rc
@@ -1609,8 +1618,6 @@ vendor/etc/seccomp_policy/gnss@2.0-xtra-daemon.policy
 vendor/etc/seccomp_policy/gnss@2.0-xtwifi-client.policy
 vendor/etc/seccomp_policy/qsap_qapeservice.policy
 vendor/etc/seccomp_policy/qsap_voiceui.policy
-vendor/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml
-vendor/etc/vintf/manifest/vendor.qti.gnss-service.xml
 vendor/etc/xtwifi.conf
 vendor/lib64/hw/android.hardware.gnss-aidl-impl-qti.so
 vendor/lib64/libMiVDR.so
@@ -1656,9 +1663,6 @@ vendor/lib64/libslimclient.so
 vendor/lib64/libsynergy_loc_api.so
 vendor/lib64/libsys_info_cache.so
 vendor/lib64/libxtadapter.so
-vendor/lib64/vendor.qti.gnss-V3-ndk.so
-vendor/lib64/vendor.qti.gnss-V4-ndk.so
-vendor/lib64/vendor.qti.gnss-service.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
@@ -1712,8 +1716,8 @@ vendor/lib64/libllvm-qgl.so
 vendor/lib64/hw/vulkan.adreno.so
 
 # IMS (system)
+system/lib64/vendor.qti.diaghal-V1-ndk.so
 system_ext/app/ImsRcsService/ImsRcsService.apk
-system_ext/app/QtiTelephony/QtiTelephony.apk
 system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
 system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
 system_ext/etc/sysconfig/qti_telephony_system_packages_config.xml
@@ -1758,6 +1762,7 @@ system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
+system_ext/priv-app/QtiTelephony/QtiTelephony.apk
 system_ext/priv-app/ims/ims.apk
 
 # IMS (vendor)
@@ -1978,19 +1983,21 @@ vendor/etc/init/minidump.rc
 vendor/etc/tzlog.dict
 
 # NFC
+odm/bin/hw/android.hardware.nfc@1.2-service-st
 odm/bin/hw/vendor.nxp.hardware.nfc@2.0-service
 odm/etc/init/vendor.nxp.hardware.nfc@2.0-service.rc
+odm/etc/init/android.hardware.nfc@1.2-service-st.rc
 odm/etc/libnfc-nci.conf
 odm/etc/libnfc-nxp.conf
 odm/etc/libnfc-nxp_RF.conf
+odm/lib64/libstnfc-auth.so
 odm/lib64/nfc_nci.nqx.default.hw.so
-vendor/bin/hw/android.hardware.nfc@1.2-service-st
+odm/lib64/nfc_nci.st21nfc.st.so
 vendor/bin/nqnfcinfo
 vendor/bin/pnscr
 vendor/bin/pnscr-mi
 vendor/bin/pnscr-rf
 vendor/bin/qsap_voiceui
-vendor/etc/init/android.hardware.nfc@1.2-service-st.rc
 vendor/etc/libnfc-SN220_19_2MHZ.conf
 vendor/etc/libnfc-SN220_38_4MHZ.conf
 vendor/etc/libnfc-hal-st-519_mtp.conf
@@ -2022,7 +2029,6 @@ vendor/lib64/libsn100u_fw.so
 vendor/lib64/libsn220u_fw.so
 vendor/lib64/libvui_dmgr.so
 vendor/lib64/libvui_dmgr_client.so
-vendor/lib64/nfc_nci.st21nfc.st.so
 vendor/lib64/vendor.nxp.hardware.nfc@2.0.so
 
 # Native public libraries
@@ -2329,9 +2335,7 @@ vendor/lib64/libril-legacy.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/librilqmimiscservices.so
-vendor/lib64/libxiaomi_diag.so
 vendor/lib64/libxiaomi_qcril.so
-vendor/lib64/libxiaomi_utils.so
 vendor/lib64/qcrilInterfaces.so
 vendor/lib64/qcrilMarshal.so
 vendor/lib64/qcrilNrQmiModule.so

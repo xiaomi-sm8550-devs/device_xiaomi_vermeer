@@ -65,6 +65,7 @@ function lib_to_package_fixup_odm_variants() {
     fi
 
     case "$1" in
+        sqlite3 | \
         audio.primary.kalama | \
         libagmmixer) ;;
         *)
